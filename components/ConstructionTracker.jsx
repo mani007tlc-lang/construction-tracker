@@ -89,10 +89,10 @@ export default function ConstructionTracker(){
     reader.onload=evt=>{
       const wb=XLSX.read(evt.target.result,{type:'binary'});
       const ws=wb.Sheets[wb.SheetNames[0]];
-      const rows=XLSX.utils.sheet_to_json(ws,{defval:\"\"});
+      const rows = XLSX.utils.sheet_to_json(ws, { defval: "" });
       setTasks(rows.map((r,i)=>({
         id:crypto.randomUUID(),project:activeProject,
-        name:r.Task||`Row ${i+1}`,activity:r.Code||\"excav_soft\",quantity:r.Quantity||0,
+        name:r.Task||`Row ${i+1}`,activity:r.Code||"excav_soft",quantity:r.Quantity||0,
         durationDays:r.Duration||1,skilledPct:r.SkilledPct||60,
         equipment:r.Equipment||\"N/A\",unitCost:r.UnitCost||0,
         predecessor:r.Predecessor||\"\",material:r.Material||\"\",materialQty:r.MaterialQty||0,materialLead:r.MaterialLead||3
