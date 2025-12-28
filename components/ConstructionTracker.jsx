@@ -66,7 +66,19 @@ export default function ConstructionTracker(){
   const [workHours,setWorkHours]=useState(12);
   const [tasks,setTasks]=useState([]);
 
-  const [form,setForm]=useState({name:\"\",activity:\"excav_soft\",quantity:\"\",durationDays:\"\",skilledPct:60,equipment:\"Excavator\",unitCost:\"\",predecessor:\"\",material:\"\",materialQty:\"\",materialLead:3});
+  const [form, setForm] = useState({
+  name: "",
+  activity: "excav_soft",
+  quantity: "",
+  durationDays: "",
+  skilledPct: 60,
+  equipment: "Excavator",
+  unitCost: "",
+  predecessor: "",
+  material: "",
+  materialQty: "",
+  materialLead: 3,
+});
 
   const project=projects.find(p=>p.id===activeProject);
   const projectTasks=tasks.filter(t=>t.project===activeProject);
